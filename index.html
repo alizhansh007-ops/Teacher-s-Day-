@@ -144,6 +144,134 @@ body{display:block}
 .hint{bottom:74px}
 #nav{padding:8px 14px;gap:14px;font-size:15px}
 #nav button{width:44px;height:44px;font-size:24px;touch-action:manipulation}
+
+/* --- v3 --- */
+@media (min-aspect-ratio:1/1){#nav{left:auto;right:16px;transform:none}}
+.hint{bottom:30px}
+/* transitions */
+@keyframes inF{from{opacity:0;transform:translateX(90px) scale(.97)}}
+@keyframes inB{from{opacity:0;transform:translateX(-90px) scale(.97)}}
+@keyframes up{from{opacity:0;transform:translateY(28px)}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+.s.on{animation:inF .55s cubic-bezier(.2,.8,.3,1) backwards}
+#stage.bk .s.on{animation-name:inB}
+.s.on h2,.s.on .duo,.s.on .trio figure,.s.on .cards .cw,.s.on .mt,.s.on .mrow div,.s.on .vid,.s.on .ward,.s.on .oc .oath,.s.on .oi .oath,.s.on .fin h1,.s.on .fin p{animation:up .6s .2s cubic-bezier(.2,.8,.3,1) backwards}
+.s.on .names .nm{animation:pop .5s cubic-bezier(.2,.9,.3,1.2) backwards}
+.names .nm:nth-child(1){animation-delay:.15s!important}.names .nm:nth-child(2){animation-delay:.22s!important}.names .nm:nth-child(3){animation-delay:.29s!important}.names .nm:nth-child(4){animation-delay:.36s!important}.names .nm:nth-child(5){animation-delay:.43s!important}.names .nm:nth-child(6){animation-delay:.5s!important}.names .nm:nth-child(7){animation-delay:.57s!important}.names .nm:nth-child(8){animation-delay:.64s!important}
+.cards .cw:nth-child(n){animation-delay:calc(.15s + var(--d,0s))}
+.trio figure:nth-child(2){animation-delay:.3s!important}.trio figure:nth-child(3){animation-delay:.4s!important}
+.mrow div:nth-child(2){animation-delay:.35s!important}.mrow div:nth-child(3){animation-delay:.5s!important}
+.title.on>img.big{animation:pop .7s .2s backwards,pulse 3s 1s ease-in-out infinite}
+.title.on>h1{animation:up .7s .4s backwards}.title.on>p{animation:up .7s .6s backwards}
+/* title */
+.title>img,.title>h1,.title>p{position:relative;z-index:2}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 8px rgba(255,255,255,.15),0 0 30px rgba(200,16,46,.0)}50%{box-shadow:0 0 0 24px rgba(255,255,255,.05),0 0 60px rgba(200,16,46,.6)}}
+.spk{position:absolute;background:#ffe8a3;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:tw ease-in-out infinite;pointer-events:none}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:.95;transform:scale(1) rotate(90deg)}}
+/* names */
+.names{height:520px;grid-template-rows:1fr 1fr;gap:22px;margin-top:0}
+.names .nm{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding:10px;font-size:inherit;background:var(--sky);border-left:0;border-top:7px solid var(--red);border-radius:14px;box-shadow:0 6px 18px rgba(13,39,72,.12)}
+.names .nm:nth-child(even){border-top-color:var(--blue)}
+.nm .av{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 38px Georgia,serif;font-style:normal;color:#fff;background:var(--red);margin-bottom:10px}
+.nm .av.c1{background:var(--blue)}
+.nm b{font:700 33px Georgia,serif;color:var(--navy);line-height:1.1}
+.nm span{font-size:29px;font-weight:600;color:var(--blue)}
+/* teacher slides */
+.tp{padding-top:34px;padding-bottom:20px}
+.tp h2{font-size:42px;margin-bottom:8px}
+.tp .duo{height:610px;grid-template-columns:1fr 430px;gap:30px}
+.tp .pf{height:610px}
+/* oath intro */
+.oi .oath.in{align-items:center;text-align:center;height:100%;gap:34px;position:relative;z-index:2}
+.oi .oath p{font-size:60px;line-height:1.28;max-width:1060px;font-weight:700;font-family:Georgia,serif;text-align:center}
+.oi p em{font-style:normal;color:#ffd56b}
+.orn{width:340px;height:14px;position:relative;flex:none}
+.orn::before{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:linear-gradient(90deg,transparent,#ff6b7f,transparent)}
+.orn::after{content:"";position:absolute;left:50%;top:0;width:14px;height:14px;margin-left:-7px;background:#ffd56b;transform:rotate(45deg)}
+.ring{position:absolute;border-radius:50%;animation:rp 6s ease-in-out infinite}
+.ring.r1{width:560px;height:560px;left:-220px;bottom:-240px;border:3px solid rgba(255,255,255,.14)}
+.ring.r2{width:640px;height:640px;right:-190px;top:-200px;border:56px solid rgba(255,255,255,.05)}
+@keyframes rp{50%{transform:scale(1.07)}}
+.qm{position:absolute;font:700 360px Georgia,serif;color:rgba(255,255,255,.08);line-height:1}
+.qm.q1{left:70px;top:-40px}.qm.q2{right:70px;bottom:-190px}
+/* oath slides */
+.oc .oath{align-items:center;text-align:center;height:100%}
+.oc .n{font-size:118px}
+.oc .oath p{max-width:1100px;text-align:center;line-height:1.28}
+.oc .oath p.a{font-size:66px}.oc .oath p.b{font-size:58px}.oc .oath p.c{font-size:50px}
+.oc .oath p strong{font-size:84px;margin-top:26px}
+.oc::after{content:"";position:absolute;right:-170px;bottom:-170px;width:470px;height:470px;border-radius:50%;border:58px solid rgba(200,16,46,.08)}
+.oc.dark::after{border-color:rgba(255,255,255,.06)}
+@media (prefers-reduced-motion:reduce){.s.on,.s.on *,.spk,.ring{animation:none!important}}
+
+/* --- v4 --- */
+#stage{overflow:hidden}
+/* title */
+.title.on>h1{animation:up .7s .4s backwards,shine 4.5s 1.2s linear infinite}
+.title h1{background:linear-gradient(100deg,#fff 40%,#ffd56b 50%,#fff 60%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+@keyframes shine{from{background-position:0 0}to{background-position:100% 0}}
+.bp{position:absolute;z-index:3;pointer-events:none}
+.popr{position:absolute;bottom:8px;font-size:96px;z-index:3;line-height:1;animation:bob 1.6s ease-in-out infinite}
+.popr.l{left:34px}.popr.r{right:30px;transform:scaleX(-1);animation-name:bobr}
+@keyframes bob{50%{transform:translateY(-12px) rotate(-8deg)}}
+@keyframes bobr{50%{transform:scaleX(-1) translateY(-12px) rotate(-8deg)}}
+/* names */
+.nms h2{font-size:54px;margin-bottom:16px}
+.nms .names{height:468px;margin:0 -44px;gap:20px}
+.nms .nm .av{width:104px;height:104px;font-size:46px;margin-bottom:10px}
+.nms .nm b{font-size:42px}
+.nms .nm span{font-size:38px}
+/* teachers: big photo */
+.tp{padding:0}
+.tp .duo{position:absolute;inset:0;height:auto;display:grid;grid-template-columns:610px 1fr;gap:0}
+.tp .pf{height:720px;display:block}
+.tp .pf img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;border-radius:0;box-shadow:10px 0 36px rgba(13,39,72,.35)}
+.tp .cap{padding:70px 64px 50px 60px;gap:16px}
+.tp .cap h2{font-size:46px;margin:0 0 22px}
+.tp .cap b{font-size:62px}
+.tp .cap span{font-size:34px}
+.tp .cap p{font-size:28px}
+/* oath intro decor */
+.frm{position:absolute;inset:26px 26px 26px 42px;border:2px solid rgba(255,213,107,.6);border-radius:6px;pointer-events:none}
+.frm::before{content:"";position:absolute;inset:9px;border:1px solid rgba(255,213,107,.3);border-radius:3px}
+.frm i{position:absolute;width:22px;height:22px;background:#ffd56b;transform:rotate(45deg)}
+.frm i:nth-child(1){left:-12px;top:-12px}.frm i:nth-child(2){right:-12px;top:-12px}
+.frm i:nth-child(3){left:-12px;bottom:-12px}.frm i:nth-child(4){right:-12px;bottom:-12px}
+.rise{position:absolute;bottom:-20px;border-radius:50%;background:radial-gradient(circle,#ffe8a3,rgba(255,213,107,0) 70%);animation:riseUp linear infinite;pointer-events:none}
+@keyframes riseUp{from{transform:translateY(0);opacity:0}15%{opacity:.9}to{transform:translateY(-780px);opacity:0}}
+.oi .oath.in{gap:22px}
+/* oaths: fitted by JS */
+.oc .n{font-size:96px}
+.oc .oath p{max-width:1136px;font-weight:600}
+.oc .oath p strong{font-size:1.25em;margin-top:.3em}
+/* transitions */
+.s.on{z-index:2}
+.s.out{display:block;z-index:1;pointer-events:none;animation:outF .5s cubic-bezier(.4,0,.8,.4) forwards}
+.s.title.out,.s.fin.out{display:flex}
+#stage.bk .s.out{animation-name:outB}
+@keyframes outF{to{opacity:0;transform:translateX(-120px) scale(.96)}}
+@keyframes outB{to{opacity:0;transform:translateX(120px) scale(.96)}}
+@keyframes inZ{from{opacity:0;transform:scale(.7)}}
+@keyframes outZ{to{opacity:0;transform:scale(1.3)}}
+@keyframes inX{from{opacity:0;transform:perspective(1600px) rotateY(-75deg) scale(.9)}}
+@keyframes outX{to{opacity:0;transform:perspective(1600px) rotateY(75deg) scale(.9)}}
+@keyframes inI{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(150% at 50% 50%)}}
+@keyframes outH{0%,85%{opacity:1}100%{opacity:0}}
+@keyframes inR{from{transform:translateY(100%)}}
+@keyframes outR{to{opacity:0;transform:translateY(-25%) scale(.95)}}
+@keyframes inBl{from{opacity:0;filter:blur(18px);transform:scale(1.08)}}
+@keyframes outBl{to{opacity:0;filter:blur(18px)}}
+#stage[data-t=z] .s.on{animation:inZ .6s cubic-bezier(.2,.8,.3,1) backwards}
+#stage[data-t=z] .s.out{animation:outZ .5s ease-in forwards}
+#stage[data-t=x] .s.on{animation:inX .7s cubic-bezier(.2,.8,.3,1) backwards}
+#stage[data-t=x] .s.out{animation:outX .5s ease-in forwards}
+#stage[data-t=i] .s.on{animation:inI .8s cubic-bezier(.4,0,.2,1) backwards}
+#stage[data-t=i] .s.out{animation:outH .8s forwards}
+#stage[data-t=r] .s.on{animation:inR .65s cubic-bezier(.2,.8,.3,1) backwards}
+#stage[data-t=r] .s.out{animation:outR .65s ease-in forwards}
+#stage[data-t=b] .s.on{animation:inBl .6s ease-out backwards}
+#stage[data-t=b] .s.out{animation:outBl .45s ease-in forwards}
+@media (prefers-reduced-motion:reduce){.s.out{display:none!important;animation:none!important}.title h1{animation:none!important}.bp,.rise,.popr{display:none}}
 </style></head><body>
 <div id="stage"></div>
 <div id="lb"><img alt=""></div>
@@ -155,28 +283,31 @@ const VID=["data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAB
 const L=`<img class="logo" src="${LOGO}" alt="МША">`;
 const slot=(t,cls='')=>`<label class="ph ${cls}"><input type="file" accept="image/*,video/*"><span>📷</span><div>${t}</div></label>`;
 const teachers=[["Тамара Николаевна","Гимнастика","Иногда нужно быть спортсменом","t"],["Лариса Николаевна","Киноклуб","Иногда — кинокритиком","l"],["Алия Аскаровна","Музыка","А иногда — музыкантом","a"]];
-const photo=(src)=>`<div class="pf"><img src="${src}" alt=""></div>`;
+const POS={t:"50% 8%",l:"50% 55%",a:"50% 18%"};
+const photo=(src,pos)=>`<div class="pf"><img src="${src}" alt="" style="object-position:${pos}"></div>`;
 const S=[];
-S.push(`<section class="s dark title"><img class="big" src="${LOGO}" alt=""><h1>Посвящение новых педагогов</h1><p>Международная школа Алматы</p></section>`);
-S.push(`<section class="s">${L}<h2>Встречайте <em>новичков</em></h2><div class="names">${["Кусаинов Тимур","Хегай Наталья","Абуова Батагоз","Марсамбаева Мадина","Кухтиченко Юлия","Баянов Бекзат","Алушаева Сара","Амнобаева Ситора"].map(n=>`<div>${n}</div>`).join("")}</div></section>`);
-teachers.forEach(([n,r,q,k])=>S.push(`<section class="s">${L}<h2>Педагог — это не только <em>предмет</em></h2><div class="duo">${photo(IMG[k+"_solo"])}<div class="cap"><b>${n}</b><span>${r}</span><p>${q}</p></div></div></section>`));
+S.push(`<section class="s dark title" id="ttl"><div class="beams"></div><div class="glow"></div><img class="big" src="${LOGO}" alt=""><h1>Посвящение новых педагогов</h1><p>Международная школа Алматы</p><span class="popr l">🎉</span><span class="popr r">🎉</span></section>`);
+S.push(`<section class="s nms">${L}<h2>Встречайте <em>новичков</em></h2><div class="names">${["Кусаинов Тимур","Хегай Наталья","Абуова Батагоз","Марсамбаева Мадина","Кухтиченко Юлия","Баянов Бекзат","Алушаева Сара","Амнобаева Ситора"].map((n,i)=>{const [a,b]=n.split(" ");return `<div class="nm"><i class="av c${i%2}">${a[0]}${b[0]}</i><b>${a}</b><span>${b}</span></div>`}).join("")}</div></section>`);
+teachers.forEach(([n,r,q,k])=>S.push(`<section class="s tp">${L}<div class="duo">${photo(IMG[k+"_solo"],POS[k])}<div class="cap"><h2>Педагог — это не только <em>предмет</em></h2><b>${n}</b><span>${r}</span><p>${q}</p></div></div></section>`));
 S.push(`<section class="s">${L}<h2>Наши новички — <em>в тех же образах</em></h2><div class="trio">${teachers.map(([n,r,q,k])=>`<figure class="zoom" data-src="${IMG[k+"_grp"]}"><img src="${IMG[k+"_grp"]}" alt=""><figcaption><b>${n}</b> и новые педагоги<br><span>${r}</span></figcaption></figure>`).join("")}</div><div class="hint">Нажмите на фото, чтобы открыть на весь экран</div></section>`);
 const out=["1 сентября","День здоровья","Зимний бал","Камуфляж","День строителя"];
 const mq=i=>`<div class="mq" tabindex="0"><div class="fig"><i class="hd"></i><i class="bd"></i><i class="lg"></i><img class="co" src="${IMG["o"+(i+1)]}" alt="${out[i]}"><span class="stand"></span></div><b>${out[i]}</b></div>`;
 S.push(`<section class="s">${L}<h2>Гардероб <em>МША</em></h2><div class="ward">${mq(0)}${mq(1)}<div class="cab"><span>Гардероб МША</span></div>${mq(2)}${mq(3)}${mq(4)}</div><div class="hint">Наведите мышь или нажмите на манекен — он «оденется»</div></section>`);
-const terms=["Интерпретация","Тригонометрия","Митоз","Интеграл","Алканы","Ямб"];
-const defs=["Объяснение смысла чего-либо на понятном языке","Изучает связи между углами и сторонами в треугольнике","Самый обычный способ деления живых клеток","Способ найти целое, сложив вместе миллионы крошечных кусочков","Самые простые органические вещества","Двусложный стихотворный размер: ударение падает на каждый второй слог"];
+const terms=["Митоз","Ямб","Интерпретация","Интеграл","Тригонометрия","Алканы"];
+const defs=["Самый обычный способ деления живых клеток","Двусложный стихотворный размер: ударение падает на каждый второй слог","Объяснение смысла чего-либо на понятном языке","Способ найти целое, сложив вместе миллионы крошечных кусочков","Изучает связи между углами и сторонами в треугольнике","Самые простые органические вещества"];
 S.push(`<section class="s">${L}<h2>Что это значит? <em>Отвечают дети</em></h2><div class="vid"><div class="terms">${terms.map((t,i)=>`<button class="${i?'':'on'}">Видео ${i+1}</button>`).join("")}<button id="ans" class="ansb">Показать ответ</button></div><div class="vbox"><video id="vp" controls playsinline></video><div id="vans"></div></div></div></section>`);
 const goals=["Ради вкусной еды столовой.","Ради школьных праздников.","Ради каникул.","Ради новых знакомств.","Потому что люблю детей.","За приключениями.","Ради бесконечного запаса канцелярии и стикеров всех цветов.","Чтобы легально пить кофе на переменах и объяснять, что это «педагогическая пауза»."];
 S.push(`<section class="s">${L}<h2>С какой целью вы пришли <em>в МША?</em></h2><div class="cards">${goals.map((g,i)=>`<div class="cw"><div class="cd"><div class="fc fr">${i+1}<small>нажмите</small></div><div class="fc bk">${g}</div></div></div>`).join("")}</div></section>`);
 S.push(`<section class="s mpos"><div class="mring"></div><img class="mlogo" src="${LOGO}" alt=""><div class="mk">Миссия</div><h2>Миссия <em>МША</em></h2><p class="mt">МША создаёт качественную образовательную среду на основе интеграции <b>казахстанских стандартов</b> и требований <b>Международного Бакалавриата</b> (IB PYP и IB MYP)</p><div class="mrow"><div><i>1</i>для всестороннего развития каждого студента как образованной и компетентной личности</div><div><i>2</i>проявляющей уважение к другим людям и культурам, обладающей личной и социальной ответственностью</div><div><i>3</i>и готовой внести свой вклад в развитие Казахстана и мирового сообщества</div></div></section>`);
 const oaths=["Приходить на работу за 5 минут до звонка и с улыбкой смотреть на первый урок.","Беречь нервную систему, запасаться терпением и пить чай с мелиссой во время перемены.","Находить общий язык с двоечниками, отличниками и родителями в чатах до полуночи.","Помнить, что глаза детей — это зеркало нашей души, а звонок с урока — наша общая радость.","Не падать в обморок, когда ученик вместо домашнего задания покажет лапки своего кота в качестве уважительной причины.","Обладать суперсилой — читать почерк, похожий на древнеегипетские иероглифы, и безошибочно отличать цифру 3 от цифры 8 в контрольных работах.","Мужественно закрывать глаза на родительские чаты после 21:00 и искренне верить, что до утра там не зародится новая цивилизация.","Свято беречь свои запасы красных ручек от таинственного школьного бермудского треугольника, в котором они исчезают каждую неделю."];
-S.push(`<section class="s dark"><div class="oath in"><p>Вступая в ряды великого и беспокойного школьного сообщества МША, перед лицом коллег и студентов торжественно клянемся:</p></div></section>`);
-oaths.forEach((o,i)=>S.push(`<section class="s${i%2?' dark':''}"><div class="oath"><div class="n">${i+1}</div><p>${i<4?'':'Клянусь '}${i<4?o:o.charAt(0).toLowerCase()+o.slice(1)}<strong>${i<4?'Клянемся!':'Клянусь!'}</strong></p></div></section>`));
+S.push(`<section class="s dark oi" id="oi"><div class="beams"></div><div class="glow"></div><div class="ring r1"></div><div class="ring r2"></div><div class="frm"><i></i><i></i><i></i><i></i></div><div class="qm q1">“</div><div class="qm q2">”</div><img class="mlogo" src="${LOGO}" alt=""><div class="oath in"><div class="orn"></div><p>Вступая в ряды великого и беспокойного школьного сообщества МША, перед лицом коллег и студентов <em>торжественно клянемся:</em></p><div class="orn"></div></div></section>`);
+oaths.forEach((o,i)=>{const t=(i<4?'':'Клянусь ')+(i<4?o:o.charAt(0).toLowerCase()+o.slice(1));const k=t.length<=95?'a':t.length<=130?'b':'c';S.push(`<section class="s oc${i%2?' dark':''}"><div class="oath"><div class="n">${i+1}</div><p class="${k}">${t}<strong>${i<4?'Клянемся!':'Клянусь!'}</strong></p></div></section>`)});
 S.push(`<section class="s fin" id="fin"><div class="beams"></div><div class="glow"></div><img src="${LOGO}" alt=""><h1>Добро пожаловать в МША!</h1><p>С посвящением!</p></section>`);
 const st=document.getElementById("stage");st.innerHTML=S.join("");
 const sl=[...st.children];let cur=0;
-function show(i){cur=Math.max(0,Math.min(sl.length-1,i));sl.forEach((s,k)=>s.classList.toggle("on",k==cur));document.getElementById("ct").textContent=(cur+1)+" / "+sl.length}
+const TT=["s","z","x","i","r","b"];let outT;
+function fitText(sec){const o=sec.querySelector(".oath"),p=o&&o.querySelector("p");if(!p)return;const oi=sec.classList.contains("oi"),mx=oi?80:96,mn=oi?40:34,k=[...o.children],av=o.clientHeight-(oi?30:12);let f=mx;for(;f>mn;f-=2){p.style.fontSize=f+"px";if(k[k.length-1].offsetTop+k[k.length-1].offsetHeight-k[0].offsetTop<=av)break}p.style.fontSize=f+"px"}
+function show(i){const n=Math.max(0,Math.min(sl.length-1,i)),prev=cur;st.classList.toggle("bk",n<cur);st.dataset.t=TT[n%TT.length];cur=n;clearTimeout(outT);sl.forEach(s=>s.classList.remove("out"));sl.forEach((s,k)=>s.classList.toggle("on",k==cur));if(prev!==n){sl[prev].classList.add("out");outT=setTimeout(()=>sl[prev].classList.remove("out"),850)}document.getElementById("ct").textContent=(cur+1)+" / "+sl.length;try{if(sl[cur]!==vp.closest(".s"))vp.pause()}catch(e){}if(sl[cur].classList.contains("oc")||sl[cur].classList.contains("oi"))fitText(sl[cur]);if(cur===0)setTimeout(()=>{if(cur===0)burst(sl[0])},350)}
 function fit(){const w=(window.visualViewport||window).width||innerWidth,h=(window.visualViewport||window).height||innerHeight;st.style.transform=`scale(${Math.min(w/1280,h/720)})`}
 addEventListener("resize",fit);fit();
 document.getElementById("pv").addEventListener("click",()=>show(cur-1));document.getElementById("nx").addEventListener("click",()=>show(cur+1));
@@ -200,7 +331,14 @@ document.addEventListener("fullscreenchange",()=>{});
 const lb=document.getElementById("lb");st.querySelectorAll(".zoom").forEach(f=>f.onclick=()=>{lb.firstElementChild.src=f.dataset.src;lb.classList.add("on")});lb.onclick=()=>lb.classList.remove("on");
 vb.forEach((b,i)=>b.onclick=()=>pick(i));pick(0);
 // confetti
-const fin=st.querySelector("#fin"),cs=["#fff","#C8102E","#7fb2ec","#fff"];
-for(let i=0;i<46;i++){const d=document.createElement("i");d.className="dot";const s=6+Math.random()*10;d.style.cssText=`left:${Math.random()*100}%;top:0;width:${s}px;height:${s*1.6}px;background:${cs[i%4]};animation-duration:${5+Math.random()*6}s;animation-delay:-${Math.random()*10}s`;fin.appendChild(d)}
+const cs=["#fff","#C8102E","#7fb2ec","#fff"];
+function confetti(el,n){for(let i=0;i<n;i++){const d=document.createElement("i");d.className="dot";const s=6+Math.random()*10;d.style.cssText=`left:${Math.random()*100}%;top:0;width:${s}px;height:${s*1.6}px;background:${cs[i%4]};animation-duration:${5+Math.random()*6}s;animation-delay:-${Math.random()*10}s`;el.appendChild(d)}}
+function sparkles(el,n){for(let i=0;i<n;i++){const d=document.createElement("i");d.className="spk";const s=10+Math.random()*20;d.style.cssText=`left:${Math.random()*96}%;top:${Math.random()*92}%;width:${s}px;height:${s}px;animation-duration:${2+Math.random()*3}s;animation-delay:-${Math.random()*5}s`;el.appendChild(d)}}
+const cc=["#ffd56b","#C8102E","#7fb2ec","#fff","#ff6b7f","#5ee0a0","#b58cff"];
+function rain(el,n){for(let i=0;i<n;i++){const d=document.createElement("i");d.className="dot";const s=7+Math.random()*11,r=Math.random()<.3;d.style.cssText=`left:${Math.random()*100}%;top:0;width:${s}px;height:${r?s:s*1.7}px;border-radius:${r?"50%":"2px"};background:${cc[i%cc.length]};animation-duration:${4+Math.random()*5}s;animation-delay:-${Math.random()*9}s`;el.appendChild(d)}}
+function burst(el){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;[[40,690,1],[1240,690,-1]].forEach(([x,y,dir])=>{for(let i=0;i<46;i++){const d=document.createElement("i");d.className="bp";const s=8+Math.random()*10,a=(28+Math.random()*52)*Math.PI/180,v=450+Math.random()*750,dx=Math.cos(a)*v*dir,dy=-Math.sin(a)*v,rot=(Math.random()-.5)*1400;d.style.cssText=`left:${x}px;top:${y}px;width:${s}px;height:${Math.random()<.4?s:s*1.7}px;background:${cc[i%cc.length]};border-radius:${Math.random()<.3?"50%":"2px"}`;el.appendChild(d);d.animate([{transform:"translate(0,0) rotate(0)",opacity:1,easing:"cubic-bezier(.15,.75,.4,1)"},{transform:`translate(${dx*.75}px,${dy*.8}px) rotate(${rot/2}deg)`,opacity:1,offset:.4,easing:"ease-in"},{transform:`translate(${dx}px,${dy+800}px) rotate(${rot}deg)`,opacity:.8}],{duration:2300+Math.random()*1300,fill:"forwards"}).onfinish=()=>d.remove()}})}
+function risers(el,n){for(let i=0;i<n;i++){const d=document.createElement("i");d.className="rise";const s=8+Math.random()*16;d.style.cssText=`left:${5+Math.random()*90}%;width:${s}px;height:${s}px;animation-duration:${6+Math.random()*6}s;animation-delay:-${Math.random()*10}s`;el.appendChild(d)}}
+confetti(st.querySelector("#fin"),46);rain(st.querySelector("#ttl"),80);sparkles(st.querySelector("#ttl"),20);sparkles(st.querySelector("#oi"),26);risers(st.querySelector("#oi"),22);
+setInterval(()=>{if(cur===0)burst(sl[0])},7000);
 show(0);
 </script></body></html>
